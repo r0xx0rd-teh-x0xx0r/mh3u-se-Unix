@@ -16,6 +16,11 @@ git clone https://github.com/yourusername/mh3u-se.git
 cd mh3u-se
 
 # Configure and build
+
+On macOS export the homebrew qt variables:
+export CMAKE_PREFIX_PATH=$(brew --prefix qt@5)
+export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
+
 mkdir build && cd build
 cmake ..
 make
