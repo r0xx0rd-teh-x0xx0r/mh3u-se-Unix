@@ -25,5 +25,7 @@ make install   # or manually run: macdeployqt mh3u-se-gui.app
 Running
 
 macOS: Double‑click mh3u-se-gui.app in the build/ folder (data files are bundled inside the app).
+
 Linux: Run ./mh3u-se-gui from the build/ directory – the data/ folder must be present in the same location (copy it manually if needed).
+
 Note: On Linux, the application looks for a data/ folder in the current working directory. You can either run from the repository root (./build/mh3u-se-gui) or copy the data/ folder into the build directory.
