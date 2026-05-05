@@ -32,9 +32,9 @@ if(APPLE)
         MACOSX_BUNDLE_SHORT_VERSION_STRING "1.0"
     )
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-            "${CMAKE_CURRENT_SOURCE_DIR}/data"
-            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/../Resources/data"
-        COMMENT "Copying data folder to app bundle Resources"
-    )
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_CURRENT_SOURCE_DIR}/data"
+        "$<TARGET_FILE_DIR:${PROJECT_NAME}>/../Resources/data"
+    COMMENT "Copying data folder to app bundle Resources"
+)
 endif()
