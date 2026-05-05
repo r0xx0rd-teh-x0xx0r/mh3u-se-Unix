@@ -29,12 +29,14 @@ cmake ..
 make
 ```
 
-# (macOS only) Create a portable .app bundle
+# (macOS only) Create a portable .app bundle and Sign:
 ```
-make install   # or manually run: macdeployqt mh3u-se-gui.app
+macdeployqt mh3u-se-gui.app
+codesign --force --deep --sign - mh3u-se-gui.app
+codesign -dv mh3u-se-gui.app
 ```
 
-Running
+Running:
 
 macOS: Double‑click mh3u-se-gui.app in the build/ folder (data files are bundled inside the app).
 
