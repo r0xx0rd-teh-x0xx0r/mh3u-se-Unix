@@ -1,4 +1,5 @@
 #include "mh3u_ds.hpp"
+#include <QCoreApplication>
 
 lang_t MH3U_DS::_lang = LANG_NONE;
 
@@ -304,7 +305,14 @@ bool MH3U_DS::readFile(dataset_t* &dataset, std::string filename, const lang_t &
 #ifdef DEBUG
 	filename = "H:/Users/Gocario/Documents/Monster Hunter/Monster Hunter 3 Ultimate/data/" + folderLang(lang) + filename + ".txt";
 #else
-	filename = "data/" + folderLang(lang) + filename + ".txt";
+#ifdef __APPLE__
+    // On macOS, data is inside the app bundle's Resources folder
+    QString basePath = QCoreApplication::applicationDirPath() + "/../Resources/data/";
+    std::string path = basePath.toStdString() + folderLang(lang) + filename + ".txt";
+    filename = path;
+#else
+    filename = "data/" + folderLang(lang) + filename + ".txt";
+#endif
 #endif
 	delete(dataset);
 	dataset = MH3U_DS::readFile(filename);
